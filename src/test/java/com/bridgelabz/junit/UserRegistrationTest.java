@@ -43,4 +43,16 @@ public class UserRegistrationTest {
         Assert.assertEquals(false, result);
 
     }
+    @Test
+    public void givenPhoneNumber_ShouldReturnTrue() {
+        boolean result = userRegistration.mobileNumber("918826923224");
+        Assert.assertEquals(true, result);
+
+    }
+
+    @Test
+    public void givenPhoneNumber_SholdReturnFalse() {
+        boolean result = userRegistration.mobileNumber("64587541236");
+        Assert.assertEquals(false, result);
+    }
 }
