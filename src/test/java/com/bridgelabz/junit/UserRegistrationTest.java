@@ -5,109 +5,73 @@ import junit.framework.Assert;
 
 public class UserRegistrationTest {
 
-    UserRegistration userRegistration = new UserRegistration();
-
     @Test
     public void givenFirstName_ShouldReturnTrue() {
-        boolean result = userRegistration.firstName("Rajkumar");
-        Assert.assertEquals(true, result);
+        UserRegistration userRegistrationRegEx = new UserRegistration();
+        boolean result = userRegistrationRegEx.firstNameValidate("Rajkumar");
+        Assert.assertTrue(result);
     }
 
     @Test
     public void givenFirstName_ShouldReturnFalse() {
-        boolean result = userRegistration.firstName("rajkumar");
-        Assert.assertEquals(false, result);
+        UserRegistration userRegistrationRegEx = new UserRegistration();
+        boolean result = userRegistrationRegEx.firstNameValidate("rajkumar");
+        Assert.assertFalse(result);
     }
 
     @Test
     public void givenLastName_ShouldReturnTrue() {
-        boolean result = userRegistration.lastName("Akhtar");
-        Assert.assertEquals(true, result);
+        UserRegistration userRegistrationRegEx = new UserRegistration();
+        boolean result = userRegistrationRegEx.lastNameValidate("Verma");
+        Assert.assertTrue(result);
     }
 
     @Test
     public void givenLastName_ShouldReturnFalse() {
-        boolean result = userRegistration.lastName("akhtar");
-        Assert.assertEquals(false, result);
+        UserRegistration userRegistrationRegEx = new UserRegistration();
+        boolean result = userRegistrationRegEx.lastNameValidate("verma");
+        Assert.assertFalse(result);
     }
 
     @Test
     public void givenEmail_ShouldReturnTrue() {
-        boolean result = userRegistration.email("nadeem@gmail.com");
-        Assert.assertEquals(true, result);
+        UserRegistration userRegistrationRegEx = new UserRegistration();
+        boolean result = userRegistrationRegEx.emailValidate("abc.xyz@bl.co.in");
+        Assert.assertTrue(result);
     }
 
     @Test
     public void givenEmail_ShouldReturnFalse() {
-        boolean result = userRegistration.email("nadeem&.com");
-        Assert.assertEquals(false, result);
-
-    }
-    @Test
-    public void givenPhoneNumber_ShouldReturnTrue() {
-        boolean result = userRegistration.mobileNumber("919925067545");
-        Assert.assertEquals(true, result);
-
+        UserRegistration userRegistrationRegEx = new UserRegistration();
+        boolean result = userRegistrationRegEx.emailValidate("abc.xyz@bl.in");
+        Assert.assertFalse(result);
     }
 
     @Test
-    public void givenPhoneNumber_ShouldReturnFalse() {
-        boolean result = userRegistration.mobileNumber("64587541236");
-        Assert.assertEquals(false, result);
-    }
-    @Test
-    public void givenPassword_ShouldReturnTrue(){
-        boolean result = userRegistration.password("Rajubhai");
-        Assert.assertEquals(true, result);
-    }
-    @Test
-    public void givenPassword_ShouldReturnFalse(){
-        boolean result = userRegistration.password("asdfghjk");
-        Assert.assertEquals(false, result);
-    }
-    @Test
-    public void givenPasswordRule2_ShouldReturnTrue() {
-        boolean result = userRegistration.password2("Rajubahi21");
-        Assert.assertEquals(true, result);
+    public void givenPhone_ShouldReturnTrue() {
+        UserRegistration userRegistrationRegEx = new UserRegistration();
+        boolean result = userRegistrationRegEx.phoneNumberValidate("91 8954653285");
+        Assert.assertTrue(result);
     }
 
     @Test
-    public void givenPasswordRule2_ShouldReturnFalse() {
-        boolean result = userRegistration.password2("asdfghjk");
-        Assert.assertEquals(false, result);
-    }
-    @Test
-    public void givenPasswordRule3_ShouldReturnTrue() {
-        boolean result = userRegistration.password3("asdfghjk");
-        Assert.assertEquals(true, result);
-    }
-    @Test
-    public void givenPasswordRule3_ShouldReturnFalse() {
-        boolean result = userRegistration.password3("asdfghjkpppp");
-        Assert.assertEquals(false, result);
-    }
-    @Test
-    public void givenPasswordRule4_ShouldReturnTrue() {
-        boolean result = userRegistration.password4("Rajubhai@55");
-        Assert.assertEquals(true, result);
-
+    public void givenPhone_ShouldReturnFalse() {
+        UserRegistration userRegistrationRegEx = new UserRegistration();
+        boolean result = userRegistrationRegEx.phoneNumberValidate("8954653285");
+        Assert.assertFalse(result);
     }
 
     @Test
-    public void givenPasswordRule4_ShouldReturnFalse() {
-        boolean result = userRegistration.password4("Asdfgh55");
-        Assert.assertEquals(false, result);
-
+    public void givenPassword_ShouldReturnTrue() {
+        UserRegistration userRegistrationRegEx = new UserRegistration();
+        boolean result = userRegistrationRegEx.passwordValidate("Abc12345#");
+        Assert.assertTrue(result);
     }
-    @Test
-    public void givenEmail8_WhenNotProper_ShouldReturnTrue() {
-        boolean result = userRegistration.emailIdValidator("abc.xyz@bl.co.in");
-        Assert.assertEquals(true, result);
-    }
-    @Test
-    public void givenEmail9_WhenNotProper_ShouldReturnFalse() {
-        boolean result = userRegistration.emailIdValidator("abcd..2002@gmail.com");
-        Assert.assertEquals(false, result);
 
+    @Test
+    public void givenPassword_ShouldReturnFalse() {
+        UserRegistration userRegistrationRegEx = new UserRegistration();
+        boolean result = userRegistrationRegEx.passwordValidate("Rajubahi23#%");
+        Assert.assertFalse(result);
     }
 }
