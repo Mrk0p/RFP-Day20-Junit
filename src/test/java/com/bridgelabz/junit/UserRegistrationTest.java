@@ -65,4 +65,15 @@ public class UserRegistrationTest {
         boolean result = userRegistration.password("asdfghjk");
         Assert.assertEquals(false, result);
     }
+    @Test
+    public void givenPasswordRule2_ShouldReturnTrue() {
+        boolean result = userRegistration.password2("Rajubahi21");
+        Assert.assertEquals(true, result);
+    }
+
+    @Test
+    public void givenPasswordRule2_ShouldReturnFalse() {
+        boolean result = userRegistration.password2("asdfghjk");
+        Assert.assertEquals(false, result);
+    }
 }
