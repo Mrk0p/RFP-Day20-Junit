@@ -12,11 +12,13 @@ public class UserRegistrationTest {
         boolean result = userRegistration.firstName("Rajkumar");
         Assert.assertEquals(true, result);
     }
+
     @Test
     public void givenFirstName_ShouldReturnFalse() {
         boolean result = userRegistration.firstName("rajkumar");
         Assert.assertEquals(false, result);
     }
+
     @Test
     public void givenLastName_ShouldReturnTrue() {
         boolean result = userRegistration.lastName("Akhtar");
@@ -27,5 +29,18 @@ public class UserRegistrationTest {
     public void givenLastName_ShouldReturnFalse() {
         boolean result = userRegistration.lastName("akhtar");
         Assert.assertEquals(false, result);
+    }
+
+    @Test
+    public void givenEmail_ShouldReturnTrue() {
+        boolean result = userRegistration.email("nadeem@gmail.com");
+        Assert.assertEquals(true, result);
+    }
+
+    @Test
+    public void givenEmail_ShouldReturnFalse() {
+        boolean result = userRegistration.email("nadeem&.com");
+        Assert.assertEquals(false, result);
+
     }
 }
